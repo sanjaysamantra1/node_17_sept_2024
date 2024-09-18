@@ -1,0 +1,38 @@
+pre-requisite 
+=============
+-Basic Javascript 
+
+
+Softwares
+=========
+1. NodeJS 
+   https://nodejs.org/en/download/prebuilt-installer
+
+2. VS code (Editor) (Atom , SublimeText, Notepad++)
+   https://code.visualstudio.com/download
+
+
+
+NodeJS
+======
+NodeJS - FrontEnd Development  -  RuntimeEnvironment (Nodejs Software)
+NodeJS - BackEnd Development   -  Programming Language - Modules/Packages - FS,OS,HTTP,CRYPTO,URL
+
+
+VSCode Emmet
+============
+!   (enter)   HTML-5 template
+
+h1{This is my First HTML Program}   
+
+#div1
+
+.div2
+
+p*5{this is paragraph-$}
+
+table>tr*10>td*4{data-$}
+
+input:number
+
+input:date
