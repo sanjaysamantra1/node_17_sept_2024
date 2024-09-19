@@ -1,0 +1,30 @@
+How to Execute Javascript files
+===============================
+1. Browser
+    -create a Javascript file, add javascript content
+    -include that javascript file in an HTML file
+    -Run the HTML File, open html file in browser
+        a. Add 'open in browser' extension 
+        b. alt + b
+2. Nodejs 
+   -create a Javascript file, add javascript content
+   -To run a javascript file in node env, run the below command
+    node <fileName>.js
+    
+Note: Every Javascript file that runs on browser may not work in nodejs, and the javascript file that runs on nodejs may not run in browser.
+
+
+    Browser(FrontEnd)                   Nodejs(BackEnd)
+========================================================================
+1. DOM(document)-Yes                    1. DOM - No
+2. Window - Yes                         2. Window - No
+3. Cookie - Yes                         3. Cookie - No
+4. offlineStorage-Yes                   4. offlineStorage-No
+5. FileSystem - No                      5. FileSystem - Yes
+6. Database Interaction - No            6. Database Interaction - Yes
+7. Client App/ FrontEnd / UI            7. Server Side App / BackEnd
+8. Consume APIs                         8. Develop APIs / REST Endpoints
+
+
+Nodejs : Develop API , fetch the live data from database and return that data to Client
+FrontEnd : Consume the API , collect the live data from nodejs and display on the screen
