@@ -1,0 +1,23 @@
+Variables
+=========
+var
+let
+const
+
+
+             var                     let                         const
+======================================================================================
+1. re-assignment - yes       1. re-assignment - yes          1. re-assignment - No
+2. initialization - No       2. initialization - No          2. initialization - Mandatory
+3. since the begining        3. ECMASCRIPT - 6 (2015)        3. ECMASCRIPT - 6 (2015)
+4. can be re-declared        4. cann't be re-declared        4. cann't be re-declared
+5. global,function           5. global,function,block        5. global,function,block
+
+
+Variable Scopes
+===============
+1. Global  (declared outside function)
+2. Function (declared inside a function) - local to a function
+3. Block (declared inside a block) - local to a block
+
+Note: when a variable is declared without var/let/const , the scope of that variable is global, no matter where that is declared

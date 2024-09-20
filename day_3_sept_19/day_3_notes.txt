@@ -9,7 +9,7 @@ How to Execute Javascript files
 2. Nodejs 
    -create a Javascript file, add javascript content
    -To run a javascript file in node env, run the below command
-    node <fileName>.js
+    node <fileName>.js  (make sure nodejs is installed in your machine)
     
 Note: Every Javascript file that runs on browser may not work in nodejs, and the javascript file that runs on nodejs may not run in browser.
 
