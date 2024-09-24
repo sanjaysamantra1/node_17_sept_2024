@@ -1,0 +1,21 @@
+Use Strict
+==========
+-provides better coding standard and stronger error checking.
+-'use strict' is only recognized at the beginning of a script or beginning of a function.
+-ECMASCRIPT modules are automatically in strict mode, with no statement needed to initiate it.
+(import/export)
+-The purpose of "use strict" is to execute the javascript in "strict mode".
+-when 'use strict' is not written, browser/Nodejs runs the JS in normal mode.
+-when 'use strict' is  written, browser/Nodejs runs the JS in strict mode.
+-in Normal mode few mistakes are ignored, in strict mode mistakes are not ignored
+
+
+1. variable declaration without var/let/const is not allowed.
+   makes it impossible to accidentally create global variables.
+2. function with duplicate arguements are not allowed.
+4. Delete of an unqualified identifier in strict mode. 
+    ex:delete Object.prototype; 
+	var x = 5; delete x;
+5. Multiple assignments not allowed.
+   var a = b = c = 3;
+6. 'this' is undefined, when a function is invoked from Global Context in strict mode.

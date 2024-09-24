@@ -19,6 +19,8 @@ Hoisting:
 -In hoisting, the variable and function declarations are put into memory during the	compile/creation phase before code execution phase.
 -only var variables gets 'undefined' value , let/const wont be initialized
 
+
+
 Temporal Dead Zone
 ==================
 -The period between entering scope and being declared where they cannot be accessed. 
