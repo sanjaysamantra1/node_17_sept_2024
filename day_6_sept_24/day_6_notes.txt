@@ -19,3 +19,17 @@ Use Strict
 5. Multiple assignments not allowed.
    var a = b = c = 3;
 6. 'this' is undefined, when a function is invoked from Global Context in strict mode.
+
+
+Javascript Event Loop
+=====================
+Heap - is the area where all our variables are stored physically
+Stack / CallStack - single thread provided for JavaScript code execution
+
+Note: Asynchronous functions(setTimeout,promise callbacks) cann't be placed in CallStack Directly, they have to wait in callback queue
+
+CallBack Queue  - Asynchronous callback functions wait here
+                  1. microtask queue  (promise)
+                  2. task queue       (setTimeout,setInterval)
+
+event loop  - checks the CallStack and callback Queue
