@@ -1,0 +1,16 @@
+Functions
+=========
+1. Pre-defined  
+   -The Functions are already there, we just have to use them
+   -console.log() , fetch() , Math.max() etc
+2. User-Defined
+  - Write the functions and use them
+
+
+Javascript Objects
+==================
+console - log(), warn(), error(), clear(), count(), table(), dir(), trace(), time(), timeEnd()
+Math - max(), min(), abs(), sqrt(), cbrt()
+document - write(), writeln()
+window - alert(), prompt(), confirm()
+Object - assign(), create()
