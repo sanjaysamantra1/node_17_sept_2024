@@ -1,0 +1,31 @@
+<body>
+    <button id="1">User-1</button>
+    <button id="2">User-2</button>
+    <button id="3">User-3</button>
+    <button id="4">User-4</button>
+    <button id="5">User-5</button>
+    <button id="6">User-6</button>
+    <button id="7">User-7</button>
+    <button id="8">User-8</button>
+    <button id="9">User-9</button>
+    <button id="10">User-10</button>
+
+    <script>
+        async function fetchUserDetails() {
+            let response = await fetch(`https://jsonplaceholder.typicode.com/users/${this.id}`)
+            let finalResponse = await response.json();
+            console.log(finalResponse);
+            // this = btn-1 / btn-2 ..... dynamic (how it is called)
+        }
+        let fetchUserDetails2 = async () => {
+            let response = await fetch(`https://jsonplaceholder.typicode.com/users/${this.id}`)
+            let finalResponse = await response.json();
+            console.log(finalResponse);
+            // this = static ( where the function is written), window
+        }
+
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('click', fetchUserDetails);
+        })
+    </script>
+</body>
