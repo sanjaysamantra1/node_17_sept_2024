@@ -1,0 +1,21 @@
+<script>
+    class Employee {
+        firstName = 'Sachin'
+        lastName = ' Tendulkar'
+
+        fullName1() { // this = (How/Where) Employee / Window
+            console.log(this);
+            console.log(this.firstName + this.lastName)
+        }
+        fullName2 = () => {  // this = (where it is written) Employee (always)
+            console.log(this)
+            console.log(this.firstName + this.lastName)
+        }
+    }
+    let emp = new Employee();
+    // emp.fullName1();
+    // emp.fullName2();
+
+    setTimeout(emp.fullName1, 1000);
+    setTimeout(emp.fullName2, 3000);
+</script>

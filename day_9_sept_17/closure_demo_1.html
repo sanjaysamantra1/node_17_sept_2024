@@ -1,0 +1,18 @@
+<script>
+    var a = 10;   // global
+    let b = 20;   // script scope
+    const c = 30; // script scope
+
+    function f1() {
+        var name = 'sachin';
+        let age = 45;
+        function f2() {
+            let add = 'mumbai';
+            console.log(name, age, add)
+        }
+        f2();
+        console.dir(f2)
+    }
+    f1()
+    console.dir(f1)
+</script>

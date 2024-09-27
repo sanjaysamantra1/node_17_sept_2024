@@ -1,0 +1,21 @@
+<script>
+    // useState is a function
+    function useState(defaultValue) {
+        let value = defaultValue;
+
+        function getValue() {
+            return value;
+        }
+        function setValue(updatedValue) {
+            value = updatedValue;
+        }
+        return [getValue, setValue];
+    }
+
+    const [color, setColor] = useState("Red");
+    console.log(color());
+    setColor('Blue')
+    console.log(color());
+
+    console.dir(color)
+</script>

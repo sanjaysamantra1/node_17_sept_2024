@@ -1,0 +1,17 @@
+Benefits of Arrow
+=================
+1. Arrow Function : 'this' is decided from lexical scope
+                     the scope where the arrow function is declared
+
+
+1. When a function has to be passed as callback function, arrow function is better.
+2. Useful when a function is passed as callback
+
+
+function closure
+================
+-A closure is an inner function that has access to its outer function's variables even after the outer function's execution is Completed/Closed.
+
+-When the outer function execution completes, you’d expect all its variables to be no longer accessible. However, if the inner function uses variables from the outer function, those variables remain accessible.
+
+-The inner function retains access to the outer function’s scope, because the inner function ‘remembers’ the environment in which it was created.

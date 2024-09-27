@@ -1,0 +1,14 @@
+<script>
+    function add() {
+        console.log(Array.isArray(arguments)) // arguments - pre-defined keyword
+        let sum = 0;
+        for (ele of arguments) {
+            sum = sum + ele;
+        }
+        console.log(sum);
+    }
+    add(2, 3)
+    add(2, 3, 4)
+    add(2, 3, 4, 5)
+    add(2, 3, 4, 5, 6)
+</script>
