@@ -1,0 +1,16 @@
+<body>
+    <div>This is div-1</div>
+    <div>This is div-2</div>
+    <div>This is div-3</div>
+    <div>This is div-4</div>
+    <div>This is div-5</div>
+
+    <script>
+        let divs = document.querySelectorAll('div');
+        console.log(divs, divs.length); // 5
+        console.log(Array.isArray(divs))
+
+        let divsArray = Array.from(divs)
+        console.log(divsArray , Array.isArray(divsArray))
+    </script>
+</body>
