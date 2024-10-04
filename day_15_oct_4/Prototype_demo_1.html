@@ -1,0 +1,30 @@
+<script>
+    class Student {
+        constructor(roll, name, add) {
+            this.roll = roll;
+            this.name = name;
+            this.add = add;
+            // this.clgName = 'nareshIT';
+            // this.clgAdd = 'hyd';
+        }
+    }
+    Student.prototype.clgName = 'nareshIT';
+    Student.prototype.clgAdd = 'hyd';
+    // prorotype properties will not be seen in every object, but every object ll be able access
+
+    let std1 = new Student(101, 'raghuvansh', 'noida')
+    let std2 = new Student(102, 'sainath', 'hyderabad')
+    let std3 = new Student(103, 'subhada', 'pune')
+    console.log(std1)
+    console.log(std2)
+    console.log(std3)
+    console.log(std1.roll, std1.name, std1.add, std1.clgName, std1.clgAdd);
+
+    std1.clgName = 'nareshInfoTech';
+    // adding a property 'clgName' in std1
+    console.log(std1.roll, std1.name, std1.add, std1.clgName, Student.prototype.clgName, std1.clgAdd);
+    console.log(std2.roll, std2.name, std2.add, std2.clgName, std2.clgAdd);
+
+    // if an object has a direct property and a prototype property with the same name,
+    // direct property takes precedence
+</script>
