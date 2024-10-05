@@ -1,0 +1,23 @@
+<script>
+    let user = { name: 'sachin', age: 50, add: 'mumbai' };
+    // object data cann't be stored in Session storage
+    // object data cann't be printed on the screen
+    // object data cann't be alerted
+    alert(user);
+    document.write(user);
+    sessionStorage.user_data = user;
+
+    // to achieve all the above things, convert object to string
+    let userStr = JSON.stringify(user);
+    alert(userStr);
+    document.write(userStr);
+    sessionStorage.user_data = userStr;
+
+    let userInfo = sessionStorage.user_data;
+    console.log(userInfo.name, userInfo.age, userInfo.add); // undefined
+    // userInfo is string
+    // how to convert string to object
+    let userObj = JSON.parse(userInfo);
+    // userObj is object
+    console.log(userObj.name, userObj.age, userObj.add); // undefined
+</script>
