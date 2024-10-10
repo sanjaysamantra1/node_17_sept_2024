@@ -114,10 +114,6 @@ accept arguments from the command line
  const args = process.argv.slice(2)
 
 
-Assignment:
--Ask user to enter 2 numbers and 1 operator(+ - * /) 
--perform arithmetic operation on those 2 numbers
-Note: hanlde edge cases also
 
 
 Minimist
@@ -130,3 +126,10 @@ Minimist
 -use double dashes before each argument name
  node app.js --name=sanjay --add=bangalore
  Note: process module does not need a "require", it's defaultly available.
+
+
+ 
+Assignment:
+-Ask user to enter 2 numbers and 1 operator(+ - * /) 
+-perform arithmetic operation on those 2 numbers
+Note: hanlde edge cases also

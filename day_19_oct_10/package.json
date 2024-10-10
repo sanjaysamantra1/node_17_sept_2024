@@ -1,0 +1,21 @@
+{
+  "name": "day_19_oct_10",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Execution_flow_1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "optionalDependencies": {
+    "minimist": "^1.2.8"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.3"
+  },
+  "devDependencies": {
+    "jasmine": "^5.3.1"
+  }
+}
