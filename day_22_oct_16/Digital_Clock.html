@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <style>
+            div {
+                font-size: 100px;
+                color: white;
+                text-align: center;
+                margin-top: 200px;
+            }
+        </style>
+    </head>
+    <body style="background-color: rgb(53, 92, 125);">
+        <div></div>
+
+        <script>
+            function printTime() {
+                let time = new Date().toLocaleTimeString();
+                document.querySelector('div').innerHTML = time;
+            }
+            setInterval(printTime, 1000);
+        </script>
+    </body>
+</html>
