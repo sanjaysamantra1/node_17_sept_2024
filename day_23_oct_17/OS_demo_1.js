@@ -1,0 +1,15 @@
+const os = require('os');
+
+console.log('hostname: ', os.hostname())
+console.log('Platform: ', os.platform())
+console.log('release: ', os.release())
+console.log('Machine: ', os.machine())
+console.log('Type: ', os.type())
+console.log('Version: ', os.version())
+console.log('Arch: ', os.arch())
+console.log('CPUs: ', os.cpus().length)
+console.log('Total Memory: ', os.totalmem() / 1024 / 1024 / 1024 + " GB")
+console.log('Free Memory: ', os.freemem() / 1024 / 1024 / 1024 + " GB")
+console.log('Home Directory: ', os.homedir())
+console.log('Temp Directory: ', os.tmpdir())
+console.log('Up Time: ', os.uptime()/60/60+' hours')
