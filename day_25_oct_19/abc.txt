@@ -1,0 +1,22 @@
+ Volume in drive C is Windows
+ Volume Serial Number is 0CA4-CD14
+
+ Directory of C:\Users\SANJAY\OneDrive\Desktop\NareshIT\node_17_sept_2024\day_25_oct_19
+
+19-10-2024  09:40    <DIR>          .
+19-10-2024  08:39    <DIR>          ..
+19-10-2024  09:09               177 .dev.env
+19-10-2024  09:20               712 .env
+19-10-2024  09:09               177 .prod.env
+19-10-2024  09:09               167 .qa.env
+19-10-2024  09:12               289 app.js
+19-10-2024  08:46             3,431 day_25_notes.txt
+19-10-2024  09:39               299 exec_demo_1.js
+19-10-2024  09:44               608 exec_demo_2.js
+19-10-2024  08:55               130 Math.js
+19-10-2024  08:49    <DIR>          node_modules
+19-10-2024  08:49               911 package-lock.json
+19-10-2024  09:23               358 package.json
+19-10-2024  09:03               286 Process_Demo_1.js
+              12 File(s)          7,545 bytes
+               3 Dir(s)  115,851,231,232 bytes free
