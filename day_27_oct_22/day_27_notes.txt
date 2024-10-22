@@ -1,0 +1,27 @@
+POSTMAN
+========
+-It's a tool to test APIs.
+ https://www.postman.com/downloads/
+
+
+ How to use json-server
+ ======================
+ 1. npm i json-server -g
+ 2. create a file(employees.json) and paste some data
+ 3. json-server --watch employees.json
+https://www.freecodecamp.org/news/json-server-for-frontend-development/
+
+GET /users - This retrieves a list of all resource entities of users.
+GET /users/:id - This retrieves a specific user by its id.
+POST /users - This creates a new user.
+PUT /users/:id - This updates a user based on a specified id.
+PATCH /users/:id - This updates a user based on a specified id.
+DELETE /users/:id - This deletes a user based on the specified id.
+
+
+express
+=======
+-framework for building RESTful APIs.
+-a framework is a set of helper functions,tools and rules that help us to build our application.
+-Frameworks similar like express : koa ,  sails.js, nestjs
+
