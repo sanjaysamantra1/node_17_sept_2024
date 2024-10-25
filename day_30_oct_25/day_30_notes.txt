@@ -1,0 +1,57 @@
+An Express application can use the following types of middleware:
+1. Application-level middleware
+   app.use(logger)
+2. Router-level middleware
+   const userRouter = express.Router();
+   userRouter.use(logger);
+3. Error-handling middleware
+   try{
+   }catch(err){
+	 next(err); // transfers error object to error handling middleware
+   }   
+4. Built-in middleware
+    express.static()
+	express.json()        converts request body to JSON.     
+	express.urlencoded()  converts form-data to JSON
+5. Third-party middleware 
+   cors , body-parser, cookie-parser
+   
+
+
+Q.How to run a middleware for all the routes in an application
+  app.use(logger);
+  
+Q.How to run a middleware for all the routes for a router object
+  const userRouter = express.Router();
+  userRouter.use(logger);
+
+Q.How to run a middleware for a particular route
+  app.get('/route1', middleware,routeHandler);
+  
+ 
+ 
+authenticate middleware
+=====================
+const authenticate = (req, res, next) => {
+    const token = req.headers['authorization'];
+    if (token === 'mysecrettoken') {
+        next(); // User is authenticated, proceed to next middleware or route handler
+    } else {
+        res.status(401).json({ message: 'Unauthorized' });
+    }
+};
+
+
+Error handler
+=============
+let myError = (errF, req, res, next) => {
+  const errorStatus = err.status || 500;
+  const errorMessage = err.message || 'Something went wrong, Try again!';
+ 
+  res.status(errorStatus).json({
+    status: errorStatus,
+    message: errorMessage,
+    stack: err.stack,
+    success: false,
+  });
+};

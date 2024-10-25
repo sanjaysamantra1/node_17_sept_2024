@@ -2,6 +2,7 @@ const express = require('express');
 const { getAllproducts, getProductById, addProduct, updateProduct, deleteProduct } = require('../controllers/products_controller');
 
 const productRouter = express.Router();
+// productRouter.use(middleware1)
 
 productRouter.get('/', getAllproducts)
 productRouter.get('/:id', getProductById)

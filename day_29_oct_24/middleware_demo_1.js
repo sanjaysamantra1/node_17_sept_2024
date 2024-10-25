@@ -9,18 +9,18 @@ const timeLog = function (req, res, next) {
     next();
 }
 
-app.use(timeLog); // register the middleware
+// app.use(timeLog); // register the middleware
 
 // all employees
-app.get('/employees', async (req, res) => {
+app.get('/employees',  (req, res) => {
     console.log('/employees route')
     res.send(employees);
 });
-app.get('/employees/:id', async (req, res) => {
+app.get('/employees/:id',  (req, res) => {
     console.log('/1 employee route')
     res.send(employees[0])
 });
 
-app.listen(5000, () => {
-    console.log('app running at 5000')
+app.listen(8080, () => {
+    console.log('app running at 8080')
 });

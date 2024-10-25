@@ -9,22 +9,22 @@ let employeeArr = [
     { id: 105, name: 'deepak', sal: 8000, gender: 'male' }
 ];
 
-// getAllEmployees
+// All Emplyees
 app.get('/employees', (req, res) => {
-    res.json(employeeArr)
+    res.json(employeeArr);
 });
 
-// get 1 employee (path param)
+// 1 employee (path param)
 app.get('/employees/:id', (req, res) => {
-    let employee = employeeArr.find(emp => emp.id == +req.params.id)
-    res.json(employee)
+    const employee = employeeArr.find(emp => emp.id === +req.params.id);
+    res.json(employee);
 });
 
-// employees?gender=male&sal=7000 (query param)
+// search employees by gender and salary (query param)
 app.get('/employee', (req, res) => {
     const { gender, sal } = req.query;
-    let filteredEmployees = employeeArr.filter(emp => emp.gender == gender && emp.sal == sal);
-    res.json(filteredEmployees)
+    const filteredEmps = employeeArr.filter(emp => emp.gender==gender && emp.sal==sal);
+    res.json(filteredEmps);
 });
 
 app.listen(5000, () => {
