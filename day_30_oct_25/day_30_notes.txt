@@ -11,8 +11,8 @@ An Express application can use the following types of middleware:
    }   
 4. Built-in middleware
     express.static()
-	express.json()        converts request body to JSON.     
-	express.urlencoded()  converts form-data to JSON
+	  express.json()        converts request body to JSON.     
+	  express.urlencoded()  converts form-data to JSON
 5. Third-party middleware 
    cors , body-parser, cookie-parser
    

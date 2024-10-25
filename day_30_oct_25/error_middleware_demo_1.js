@@ -13,7 +13,7 @@ let myErrorHandler1 = (err, req, res, next) => {
         success: false,
     });
 };
-app.use(myErrorHandler1);
+// app.use(myErrorHandler1);
 
 // all employees
 app.get('/employees', (req, res,next) => {
@@ -21,7 +21,7 @@ app.get('/employees', (req, res,next) => {
     res.send(employees);
 });
 // 1 employee
-app.get('/employees/:id', (req, res) => {
+app.get('/employees/:id', (req, res, next) => {
     console.log('/1 employee route')
     if(+req.params.id <= 10){
         res.send(employees[0])
@@ -30,6 +30,10 @@ app.get('/employees/:id', (req, res) => {
     }
 });
 
+app.get('/test',(req,res,next)=>{
+    next(new Error('Something went wrong........'))
+})
+app.use(myErrorHandler1);
 app.listen(5001, () => {
     console.log('app running at 5001')
 });
