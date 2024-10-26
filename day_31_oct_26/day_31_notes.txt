@@ -1,0 +1,33 @@
+cookie-parser
+=============
+-To Read cookie information from client.
+-It parses Cookie header and populate req.cookies with an object keyed by cookie names. 
+
+1. How to Read Client cookie data in Server:
+	const cookieParser = require('cookie-parser');
+	app.use(cookieParser());
+	
+	app.get('/getCookie', (req, res,next) => {
+		res.send(req.cookies); // server can read cookie data from request object
+	});
+2. How server can set cookie in client's browser
+   app.get('/setCookie', (req, res,next) => {
+		res.cookie('name','sanjay')
+		res.cookie('add','bangalore')
+    });
+3. How server can delete cookie from client's browser
+   app.get('/setCookie', (req, res,next) => {
+		res.clearCookie('name');
+    });
+
+
+
+NodeJs and Typescript
+=====================
+1. npm init -y
+2. npm install express typescript ts-node @types/node @types/express
+3. npx tsc --init
+4. add CRUD code
+5. npx ts-node src/app.ts
+		(OR)
+   a. npx tsc  b. node dist/app.js
