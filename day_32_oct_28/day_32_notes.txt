@@ -1,0 +1,115 @@
+
+
+Use a Logging Service to track and store errors in production
+==============================================================
+-To improve error management, we can integrate logging services
+-Winston or Morgan can be used for logging error details to external files or monitoring services. 
+-These are helpful for production environments
+
+
+
+Morgan 
+======
+-Morgan is a popular HTTP request logger middleware for Node.js.
+-Alternatives Packages to morgan are : Winston / Bunyan / Pino
+-It simplifies the process of logging HTTP requests in a Node.js application by automatically generating logs for incoming requests.
+-Morgan provides various logging formats and options, allowing developers to customize the logging output according to their requirements.
+-Logging formats : combined / common / short / tiny / dev
+
+Example: 
+	app.use(morgan('tiny'));
+    app.use(morgan(':method :host :status :param[id] :res[content-length] - :response-time ms'));
+
+Custom token with argument:
+morgan.token('param', function(req, res, param) {
+    return req.params[param];
+});
+
+only log error responses:
+morgan('combined', {
+  skip: function (req, res) { return res.statusCode < 400 }
+})
+
+
+1. npm i morgan
+2. const morgan = require('morgan');
+   app.use(morgan('tiny'));
+
+
+
+
+
+Express generator
+=================
+1. npm install -g express-generator
+2. express project1 (--view=jade  default)
+   express --view=ejs project1
+   express project2 --no-view
+3. once the project is created, run the below commands to start the app
+	cd project1
+	npm install
+	SET DEBUG=project1:* & npm start
+
+
+Folder Structure for NodeJS & ExpressJS project
+================================================
+https://dev.to/mr_ali3n/folder-structure-for-nodejs-expressjs-project-435l
+
+
+
+CORS(Cross-Origin-Resource-Sharing)
+====
+-Manages how our server will respond to requests from different origins.
+-Controls which domains can access our API or web application by setting Access-Control-Allow-Origin and other headers.
+
+Key Features:
+-Prevents unauthorized cross-origin requests: 
+	By default, browsers block requests made from one domain to another (a different origin). The cors middleware enables specific domains or all domains to access your resources.
+-Customizable origin policies: 
+	We can whitelist specific origins, methods, and headers that are allowed to interact with your server.
+
+
+-CORS is a npm package.
+-How to Install
+ npm install cors
+ 
+ 
+How to use cors
+===============
+const cors = require('cors');
+const app = express();
+app.use(cors());
+
+const corsOptions = {
+  origin: 'http://example.com'
+}
+app.use(cors(corsOptions));
+
+
+Default Configuration 
+corsOptions = {
+  "origin": "*",
+  "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+  "preflightContinue": false,
+  "optionsSuccessStatus": 204
+}
+
+const whitelist = ['http://example1.com', 'http://example2.com']
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.includes(origin)) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
+
+https://www.npmjs.com/package/cors
+
+
+
+CURL
+====
+-Client URL Request Library
+-curl -help

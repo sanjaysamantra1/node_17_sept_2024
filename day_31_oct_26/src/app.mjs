@@ -1,6 +1,8 @@
 import express from 'express';
 import cors from 'cors';
+import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
+
 let employees = [
     { eId: 101, name: 'sanjay', sal: 5000, gender: 'male' },
     { eId: 104, name: 'geeta', sal: 8000, gender: 'female' },
@@ -11,6 +13,8 @@ let employees = [
 const app = express();
 app.use(cors()); // middleware
 app.use(cookieParser()); // middleware
+app.use(morgan('short'));
+
 app.get('/employees', (req, res) => {
     console.log('/employees route');
     res.send(employees);

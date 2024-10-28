@@ -1,0 +1,16 @@
+<html>
+
+<head>Fetch user data</head>
+
+<body>
+    <script>
+        async function fetchUsers() {
+            let response = await fetch('http://localhost:3000/users');
+            let finalData = await response.json();
+            console.log(finalData, response)
+        }
+        fetchUsers();
+    </script>
+</body>
+
+</html>
