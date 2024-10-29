@@ -58,3 +58,9 @@ prependOnceListener()	Adds the specified listener as the first event with the sp
 removeAllListeners()	Removes all listeners with the specified name, or ALL listeners if no name is specified
 removeListener()		Removes the specified listener with the specified name
 setMaxListeners()		Sets the maximum number of listeners allowed for one event. Default is 10
+
+
+Assignment:
+===========
+Create a Banking application with deposit, withdraw,checkBalance functionality
+using EventEmitter
