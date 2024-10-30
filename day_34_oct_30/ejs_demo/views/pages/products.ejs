@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('../partials/head'); %>
+</head>
+
+<body class="container-fluid">
+    <nav>
+        <%- include('../partials/navbar'); %>
+    </nav>
+    <main>
+        <div class="jumbotron body">
+            <h1 class="text-center">This is Products Page</h1>
+            <hr />
+            <div class="row">
+                <% products.forEach(function(prod){ %>
+                    <div class="col-sm-3">
+                        <div class="card m-1">
+                            <img height="200" class="card-img-top" src="<%=prod.images[0]%>" alt="Card image cap">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">
+                                    <%=prod.title%>
+                                </h5>
+                                <p class="card-text text-truncate">
+                                    <%=prod.category%>
+                                </p>
+                                <p class="card-text text-truncate">
+                                    <%=prod.description%>
+                                </p>
+                                <p class="card-text text-truncate">
+                                    <%=prod.price%>
+                                </p>
+                                <a href="#" class="btn btn-primary">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+</body>
+
+</html>
