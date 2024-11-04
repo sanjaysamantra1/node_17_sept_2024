@@ -1,0 +1,200 @@
+Data Access in Node.js
+======================
+-Node.js supports all kinds of databases(RDBMS/NO-SQl)
+ However, NoSQL databases like MongoDB are the best fit with Node.js
+-To access the database in Node.js application, driver needs to be installed 
+ex:npm install mysql (for MySQL)
+   npm install oracledb (for Oracle)
+   npm install mongodb (MongoDB)
+
+
+MongoDB
+=======
+-it stores data in the collections as JSON based documents and does not enforce schemas. 
+-UnStructured data. structure of every document must not be the same.
+-It does not have tables, rows, and columns as other SQL (RDBMS) databases.
+-RDBMS  (Database,Table,Row,Column)
+ MongoDB(Database,Collection,Document,Field)
+-indexing , shemaless , Replication, Scalability, Performance, High Availability.
+-No SQL databases - MongoDB, cassandra, Amazon Dynamo DB, couchbase, redis.
+ Relational databases - MySql , Oracle , PostgreSQL
+ 
+
+NoSQL Databases (MongoDB)
+=========================
+-Type: NoSQL, document-oriented database.
+-Data Storage: Stores data in flexible, JSON-like documents (BSON).
+-Schema: Schema-less; fields can vary from document to document.
+-Scalability: Horizontal scaling is easier; designed to scale out by sharding.
+-Performance: Can be faster for certain types of applications, especially those dealing with unstructured data or requiring flexible schema.
+-Use Cases: Ideal for content management systems, real-time analytics, IoT, and applications requiring flexible, hierarchical data structures.
+
+Relational Databases (MySQL, PostgreSQL, etc.)
+==============================================
+-Type: SQL-based, relational database management systems.
+-Data Storage: Stores data in tables with rows and columns.
+-Schema: Enforced schema; data must adhere to a predefined structure.
+-Scalability: Typically scales vertically, although horizontal scaling (sharding) is possible with more complexity.
+-Performance: Can be faster for applications with complex queries, transactions, and operations requiring joins across multiple tables.
+-Use Cases: Suitable for applications requiring ACID (Atomicity, Consistency, Isolation, Durability) properties, such as financial systems, e-commerce platforms, and other data-centric applications.
+
+
+
+Sql         MongoDB
+===================
+Database    Database
+Table       Collection
+Row         Document
+Column		Field
+Select      find
+Insert      Insert
+Update      Update
+Delete      Remove
+
+
+
+db.employees.insertMany([{id:1,name:'sanjay},{id:2,name:'deepak',sal:5000}])
+db.employees.insertMany([{id:1,name:'sanjay},{prodid:111,name:'prod1',price:5000}])
+-if it was RDBMS, we would have changed the schema(alter) first 
+
+
+MongoDB Local
+=============
+1. download and install (MongoDB Community Server)
+   https://www.mongodb.com/try/download/community 
+					(OR)
+   https://fastdl.mongodb.org/windows/mongodb-windows-x86_64-6.0.5-signed.msi
+   
+   
+The Below Points are optional if we want to access our database in MongoDB Compass
+2. Go to the path where MongoDB is installed,and run 'mongod.exe'  
+   By default it is "C:\Program Files\MongoDB\Server\6.0\bin"
+4. Expect Error as the data directory is not set
+   "{"error":"NonExistentPath: Data directory C:\\data\\db\\ not found"
+5. create folder 'c:\data\db'
+6. run 'mongod.exe'
+7. set path for mongo-server(To start mongodb from any path)
+	C:\Program Files\MongoDB\Server\6.0\bin
+
+
+https://treehouse.github.io/installation-guides/mac/mongo-mac.html
+https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/
+
+
+
+MongoDB Shell (CLI for mongoDB)
+=============
+-download mongoDB shell 
+ https://www.mongodb.com/try/download/shell
+-extract and run mongosh.exe
+-set path for mongo-shell
+	 C:\mongo-shell\bin	    
+-verify the path setup is done correctly by running below 2 commands
+ mongod --version
+ mongosh --version 
+-Run the below command to Start Mongo Shell 
+ start mongosh.exe 
+-Enter mongoDB Connection String 
+ mongodb://localhost:27017
+ 
+ 
+Note: If mongoDB and mongoShell are installed & path is set
+-open 2 command prompts
+-run 'mongod' in 1st cmd
+-run 'mongosh' in 2nd cmd
+MongoDB Compass
+===============
+-MongoDB Compass is a graphical interface to interact with the MongoDB 
+-Manage MongoDB data without writing complex shell commands
+ 
+1. Download and install MongoDB Compass (It comes along with mongoDB)
+   https://www.mongodb.com/try/download/compass
+2. open mongoDB Compass GUI
+3. Enter mongoDB Connection String 
+   mongodb://localhost:27017  (OR) 
+   mongodb://127.0.0.1:27017   
+   mongodb://0.0.0.0:27017
+
+ 
+
+ 
+
+ 
+MongoDB Queries/Commands
+========================
+https://www.geeksforgeeks.org/mongodb-tutorial/
+
+-To See All databases
+ show dbs;
+ show databases;
+-To Use one database
+ use sanjaydb1  (creates a new database if it doesn’t exist)
+-To see the Current Database
+ db 
+-To see all the collections under a database
+ show collections
+-To Create a Collection/Table
+ db.createCollection('employees')
+-To add a Document/Row in a collection
+ db.employees.insertOne({eid:1,name:'sanjay',sal:5000})
+ db.employees.insertOne({_id:1,name:'sanjay',sal:5000})
+ db.employees.insertMany([{eid:1,name:'sanjay',sal:5000},
+            {eid:2,name:'sameer',sal:6000}])
+ db.employees.insertMany([{eid:1,name:'sanjay',sal:5000},
+            {eid:2,name:'sameer',sal:6000}] , {ordered:false}); 
+// ordered:false , trying to insert 3 docs, if 2 fails, 1 & 3 should be inserted
+-To  see data inside collections
+ db.employees.find() 
+ db.employees.find().pretty()
+ db.employees.find({},{eid:1,sal:1}) // projection
+ db.employees.find( {sal: 6000} )
+ db.employees.findOne({sal: 6000})
+ db.employees.find( {name:'abc',sal: 6000} )
+ db.employees.find({"address.city":"bangalore"}) //Nested
+ db.employees.find({sal: {$lt:6000}}) 
+ db.employees.find({sal: {$lte:6000}}) 
+ db.employees.find({sal: {$ne:6000}})
+ db.employees.find({sal: {$gt:5000, $lt:9000}})
+ db.employees.find({"name":{$in:["Raj", "Ram", "Raghu"]}})
+ db.employees.find({$or:[{name:"ram"},{sal:5000}]})
+ db.employees.find({"name":/san/i})   // (Like in SQL)
+ 
+Projection : which fields to include in the results
+             use 1 to include a field and 0 to exclude a field.
+
+ db.employees.find( {} , {sal:0} ) // all columns except sal
+ db.employees.find( {} , {sal:1,name:1} ) // name,sal column in result
+ 
+
+ db.employees.find().sort({sal:1})   //asc
+ db.employees.find().sort({sal:-1}) //desc
+ db.employees.find().count()
+ db.employees.countDocuments({salary:13001});
+ db.employees.find().limit(2)
+ db.employees.find().sort({sal:-1}).skip(2).limit(1)
+ db.employees.distinct('eid');  // ['e101','e102']
+ 
+-To Update the existing Data
+ db.employees.updateOne( { id: 101 }, { $set: { sal: 2000 } } ) 
+ db.employees.updatemany( { sal:6000 }, { $set: { sal: 6500 } } )
+ db.employees.updateOne({id: 101},{$set:{eid:1,name:'sanjay',sal:5000}},{ upsert: true });  // Update or Insert
+ // Update the document, but if not found insert it
+ db.employees.updateOne({eId:'e102'},{$inc:{sal:100}}); // increment
+ db.employees.updateOne({eId:'e102'},{$set:{address:{city:'bangalore'}}}); // add a new field
+ db.employees.updateOne({eId:'e102'},{$set:{address:{}}}); // update address value to {}
+ db.employees.updateOne({eId:'e102'},{$unset:{address:''}});  // remove a field
+ db.employees.updateOne({eId:'e102'},{joinDate : $currentDate });  // Sets the field value to the current date
+ db.employees.updateOne({eId:'e102'},{ $rename: { "username": "user_name" } }); // Renaming a Field
+ 
+ 
+ 
+ 
+-To Delete 
+ db.employees.deleteOne({ sal:6000 });      
+ db.employees.deleteMany({ gender:"male" })
+ db.employees.deleteMany({})   // Delete All Documents(equivalent of SQL's truncate)
+ db.employees.deleteMany({$or:[{status:'inactive'},{sal:7000}]});  // Delete with Logical Operator
+ db.employees.deleteMany({name:{$regex:/si/}});  // Delete using REGEX
+ 
+ db.employees.drop()  // Drop The Collection
+ db.dropDatabase()    // Drop Database
