@@ -1,0 +1,23 @@
+MongoDB Atlas
+=============
+-MongoDB Atlas is a fully-managed cloud database.
+
+-Register for an Atlas account
+ https://www.mongodb.com/atlas/database (click on try Free)
+ Fill in the registration form with your information and click Sign up
+ 
+-Create a cluster and deploy an M0(Free) cluster
+ 
+ 
+-Add your connection IP address to your IP access list
+-Create a database user for your cluster
+-Connect to your cluster
+-Add your own data / Load Sample Data
+
+Follow the Steps mentioned in the below URL
+https://www.javatpoint.com/mongodb-atlas
+https://www.freecodecamp.org/news/get-started-with-mongodb-atlas/
+
+mongodb+srv://sanjaysamantra:<password>@cluster0.geshq.mongodb.net/?retryWrites=true&w=majority
+mongodb+srv://sanjaysamantra1:berhampur@cluster0.ga81v5y.mongodb.net/
+mongodb+srv://sanjaysamantra1:berhampur@cluster0.ga81v5y.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
