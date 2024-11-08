@@ -1,0 +1,78 @@
+ODM (Object-Document Mapping)
+=============================
+-ORM : Used with relational databases like MySQL and PostgreSQL
+-ODM : Used with non-relational databases like MongoDB, Cassandra, and Redis
+-ODM maps between objects in code and documents in a NoSQL database collection.
+-ODM provides a schema-based solution for modeling application data.
+-built-in features like type casting, validation, query building etc.
+-They streamline database operations, enhance code organization, and boost developer productivity
+-There are many ODM/ORM solutions available - Mongoose, Sequelize
+
+Mongoose
+========
+-Mongoose is a MongoDB object modeling tool.
+-Mongoose is a JavaScript object-oriented programming library that creates a connection between MongoDB and the Node.js.
+-Provides features like: Data validation, Middleware and hooks, Schema enforcement, Abstraction
+
+https://mongoosejs.com/docs/guide.html
+https://mongoosejs.com/docs/validation.html#built-in-validators
+
+
+
+Mongoose Terminologies
+======================
+Schema:
+-Each schema maps to a MongoDB collection and defines the shape of the documents within that collection
+ new mongoose.Schema({eId: { type: Number,required:true,min:18,default:20 }});
+ 
+Model:
+-To use schema definition, we need to convert a Schema into a Model. 
+ mongoose.model(modelName, schema):
+ 
+Constructing Documents:
+-An instance of a model is called a document.
+ const emp = new EmployeeModel({ id:1,name:'sanjay });
+ await emp.save();
+   (or)
+ await emp.create({ id:1,name:'sanjay });
+ 
+Querying: 
+-Finding documents is easy with Mongoose.
+-Documents can be retrieved using a model's find, findById, findOne, or where static functions.
+ await UserModel.find({ add.city:'bangalore }).where('sa').gt(5000).exec();
+ 
+Validating:
+-Documents are casted and validated before they are saved. Mongoose first casts values to the specified type and then validates them. 
+-Internally, Mongoose calls the document's validate() method before saving.
+ Built-in Validators : type, required, min, max, enum 
+
+Custom Error Messages :
+-Array syntax: min: [6, 'Must be at least 6, got {VALUE}']
+-Object syntax: enum: { values: ['Coffee', 'Tea'], message: '{VALUE} is not supported' }
+
+
+
+
+
+
+Steps to use mongoose
+======================
+1. connect to DB
+   const url = 'mongodb://localhost:27017/june_2024';
+   mongoose.connect(url);
+2. Create Schema
+   let employeeSchema = new mongoose.Schema({
+    eId: { type: Number,required:true },
+    name: { type: String,required:true },
+    sal: { type: Number,required:true },
+    gender: { type: String,required:true  }
+   })
+3. Create a Model
+   let employeeModel = mongoose.model("employees", employeeSchema);
+4. using model try to perform DB operations
+   await employeeModel.find({});
+   
+
+
+Note: By Default Validations work for POST calls, to run validations for PUT,PATCh , use the below code
+mongoose.set('runValidators', true); 
