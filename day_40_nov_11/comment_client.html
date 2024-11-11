@@ -1,0 +1,34 @@
+<script>
+    /*  async function getData() {
+         const url = 'http://localhost:5000/api/comments'
+         const myQuery = `{comments{id,name,email}}`;
+ 
+         let response = await fetch(url, {
+             method: 'POST',
+             body: JSON.stringify({ query: myQuery }),
+             headers: {
+                 'COntent-Type': 'application/json'
+             }
+         })
+         let finalData = await response.json();
+         console.log(finalData)
+     }
+     getData(); */
+
+    const url = 'http://localhost:5000/api/comments'
+    const myQuery = `{comments{id,name,email}}`;
+
+    fetch(url, {
+        method: 'POST',
+        body: JSON.stringify({ query: myQuery }),
+        headers: {
+            'COntent-Type': 'application/json'
+        }
+    }).then(response => {
+        response.json().then(data => {
+            console.log(data)
+        })
+    }).catch(err => {
+        console.log(err)
+    })
+</script>
