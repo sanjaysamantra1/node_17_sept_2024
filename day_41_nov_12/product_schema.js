@@ -16,7 +16,7 @@ exports.typeDefs = `
     }
     type Mutation {
         addProduct(name:String,category:String,price:Int,quantity:Int,rating:[Int]) : Product
-        updateProduct(name:String,category:String,price:Int,quantity:Int,rating:[Int]) : Product
+        updateProduct(id:ID,name:String,category:String,price:Int,quantity:Int,rating:[Int]) : Product
         deleteProduct(id:ID) : Boolean
     }
 `;
@@ -38,7 +38,8 @@ exports.resolvers = {
             return addResponse;
         },
         updateProduct: async (parent, args) => {
-
+            const updateResponse = await productModel.findByIdAndUpdate(args.id, { ...args }, { new: true });
+            return updateResponse;
         },
         deleteProduct: async (parent, args) => {
             await productModel.findOneAndDelete({ _id: args.id });
