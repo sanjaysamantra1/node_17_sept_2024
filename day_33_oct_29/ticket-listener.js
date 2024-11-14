@@ -12,6 +12,6 @@ ticketManager.on('noTicketAvailable', (email, errMsg) => {
 })
 
 ticketManager.buy('shubhadadhawale@gmail.com', 200)
-ticketManager.buy('simranshah3012@gmil.com', 300)
+ticketManager.buy('simranshah3012@gmail.com', 300)
 ticketManager.buy('raghu11697@gmail.com', 400)
 ticketManager.buy('sainathreddy4560@gmail.com', 100)
