@@ -1,0 +1,25 @@
+Socket IO / Chat Application
+============================
+-Socket.IO is a library that enables bidirectional and event-based communication between a client and a server.
+
+const io = socket(expressServer);
+io.on('connection', socket => {
+  socket.emit('request', /* … */); // emit an event to the socket
+  socket.on('reply', () => { /* … */ }); // listen to the event
+  socket.broadcast.emit(); //emit an event to all connected sockets, except the sender
+  io.emit('broadcast', /* … */); // emit an event to all connected sockets  
+});
+
+
+Private Message	
+===============
+1. Create a Room and join
+   io.on("connection", (socket) => {
+		socket.join("some room");
+   });
+2. Emit the message only to a room
+  socket.to('sanjaypraveenroom').emit("chat message", data);
+  
+  io.to("some room").emit("some event");
+  io.except("some room").emit("some event");
+  io.to("room1").to("room2").to("room3").emit("some event");
