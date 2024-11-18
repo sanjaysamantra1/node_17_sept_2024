@@ -1,0 +1,11 @@
+body {
+    background-color: #e0e0e0;
+}
+
+.swagger-ui .topbar {
+    background-color: blueviolet;
+}
+
+.swagger-ui .info .base-url {
+    font-size: 25px;
+}
