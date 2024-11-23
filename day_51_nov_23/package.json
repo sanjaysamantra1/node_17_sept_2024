@@ -1,0 +1,15 @@
+{
+  "name": "day_51_nov_23",
+  "version": "1.0.0",
+  "description": "",
+  "main": "async_await_1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.7"
+  }
+}
