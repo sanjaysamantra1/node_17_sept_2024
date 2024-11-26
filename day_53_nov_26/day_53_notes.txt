@@ -1,0 +1,54 @@
+Duplex Stream:
+-mix of both the readable and writable streams.
+-both streams are independent of each other.
+-compression & de-compression
+-encryption & decryption
+
+
+CRON
+=====
+https://www.npmjs.com/package/node-cron
+
+
+1. npm i node-cron
+2.Add the below code
+var cron = require('node-cron');
+cron.schedule('* * * * *', () => {
+  console.log('running a task every minute');
+});
+
+
+
+1. second (optional)
+2. minute
+3. hour
+4. day of month
+5. month
+6. day of week
+
+
+* * * * * *        Every Second
+*/10 * * * * *     Every 10 Second
+* * * * *          Every minute
+*/2 * * * *        Every 2 minute
+
+0 * * * *        Every Hour
+0 */2 * * *      Every alternate Hour
+30 * * * *       30th minute of every hour
+0 0 * * *        every day 12 am
+0 10 * * *       every day 10 am
+30 14 * * *      every day 2.30 pm
+
+0 10 * * 1       every monday 10 am
+0 10 * * 1-5     Weekday  10:00 AM
+30 10 */2 * *     every alternate day 10.30 am
+0 0 1 * *        Every Month
+0 0 1 1 *        Every Year jan 1st
+
+https://crontab.guru/every-year
+
+
+
+NodeJs Application Deployment
+=============================
+https://www.freecodecamp.org/news/how-to-deploy-nodejs-application-with-render/
